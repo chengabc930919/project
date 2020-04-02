@@ -1,0 +1,714 @@
+/**
+* I think element-ui's default theme color is too light for long-term use.
+* So I modified the default color and you can modify it to your liking.
+**/
+
+/* theme color */
+$--color-primary: #339999;
+//$--color-primary: #14589f;
+
+$--color-white: #fff;
+$--color-black: #000;
+$--color-primary-light-1: mix($--color-white, $--color-primary, 10%);
+$--color-primary-light-2: mix($--color-white, $--color-primary, 20%);
+$--color-primary-light-3: mix($--color-white, $--color-primary, 3%);
+$--color-primary-light-4: mix($--color-white, $--color-primary, 40%);
+$--color-primary-light-5: mix($--color-white, $--color-primary, 50%);
+$--color-primary-light-6: mix($--color-white, $--color-primary, 60%);
+$--color-primary-light-7: mix($--color-white, $--color-primary, 70%);
+$--color-primary-light-8: mix($--color-white, $--color-primary, 80%);
+$--color-primary-light-9: mix($--color-white, $--color-primary, 90%);
+$--color-success: #29ab91;
+$--color-warning: #f39927;
+$--color-danger: #f15a4a;
+// $--color-info: #1E1E1E;
+
+$--button-font-weight: 400;
+// $--color-text-regular: #1f2d3d;
+$--border-color-light: #dfe4ed;
+$--border-color-lighter: #e6ebf5;
+$--table-border:1px solid#dfe6ec;
+
+//$height-data: 5px;
+//input框 medium、small、mini 高度height设置
+$--input-medium-font-size: 18px;
+$--input-medium-height: 35px;
+$--input-small-font-size: 15px;
+$--input-small-height: 30px;
+$--input-mini-font-size: 12px;
+$--input-mini-height: 26px;
+
+// border圆直角设置
+$--border-radius-base: 0;
+$--tag-border-radius: 0;
+.el-card,
+.el-radio-button__inner,
+.ud-staff-select .ud-staff-show {
+  border-radius: 0 0 0 0;
+}
+.el-notification,
+.el-message-box {
+  border-radius: 0 !important;
+}
+// button
+$--button-medium-font-size: 18px;
+$--button-medium-padding-vertical: 7.5px;
+$--button-medium-padding-horizontal: 15px;
+$--button-small-font-size: 15px;
+$--button-small-padding-vertical: 6.5px;
+$--button-small-padding-horizontal: 12px;
+$--button-mini-font-size: 12px;
+$--button-mini-padding-vertical: 5.5px;
+$--button-mini-padding-horizontal: 10px;
+
+// table
+.el-table--medium {
+  font-size: 18px !important;
+  td,th {
+    padding: 6px 0 !important;
+  }
+}
+.el-table--small {
+  font-size: 15px !important;
+  td,th {
+    padding: 4px 0 !important;
+  }
+}
+.el-table--mini {
+  font-size: 12px !important;
+  td,th {
+    padding: 2px 0 !important;
+  }
+}
+
+//菜单样式 JM 05-23
+// base color
+$blue:#324157;
+$light-blue:#3A71A8;
+$red:#C03639;
+$pink: #E65D6E;
+$green: #30B08F;
+$tiffany: #4AB7BD;
+$yellow:#FEC171;
+$panGreen: #30B08F;
+
+body, button, input, optgroup, select, textarea, code, kbd, samp {
+  font-family: Tahoma,Helvetica,Arial,'Microsoft Yahei','SJSONG',sans-serif;
+}
+
+//font size
+$--font-size-base: 15px;
+$--size-base: 15px;
+//定义输入框高度和行高
+@mixin font-height($height,$line-height) {
+  height: $height;
+  line-height: $line-height;
+}
+//定义菜单高度和行高 
+@mixin height-size($height,$line-height) {
+  height: $height;
+  line-height: $line-height;
+}
+// 默认（font-size=15px）
+// 所有表单 label
+.el-form-item__label {
+  line-height: 30px  !important;
+}
+// 模态框
+.app-container .el-dialog .el-dialog__header {
+  padding: 7px 20px;
+}
+.ud-staff-select .el-dialog .el-dialog__header {
+  padding: 10px 20px;
+}
+// 菜单高度和行高
+.udesk-menu-wrap .el-submenu__title,
+.udesk-menu-wrap .el-menu-item,
+.nest-menu .el-menu-item,
+#app .sidebar-container .el-submenu .el-menu-item {
+  @include height-size(42px,39px);
+}
+// 表单行间距/单表交易行间距
+.el-form-item,
+.filter-container .filter-item {
+  margin-bottom: 5px !important;
+}
+// logo
+.ud-logo-wrapper.sidebar-logo-container {
+  height: 50px;
+  line-height: 50px;
+  .sidebar-logo-link .sidebar-title {
+    line-height: 50px;
+  }
+  .sidebar-logo-link .sidebar-logo {
+    background-color: #fff;
+    padding: 2px;
+    border-radius: 50%;
+  }
+}
+// header
+.navbar {
+  height: 50px;
+  .hamburger-container,
+  .ud-breadcrumb.el-breadcrumb,
+  .right-menu {
+    line-height: 50px;
+  }
+  .right-menu .avatar-container .avatar-wrapper .el-icon-caret-bottom {
+    top: 22px;
+  }
+  .headPortrait {
+    width: 25px;
+    height: 25px;
+    margin-top: 8px;
+  }
+}
+.ud-tags-view-wrapper {
+  .ud-tags-view-item {
+    .el-icon-close {
+      width: 15px;
+      height: 15px;
+      vertical-align: 0px;
+      &:before {
+        vertical-align: -1px;
+      }
+    }
+  }
+}
+// 所有dropdown下拉的line-height设置
+.el-dropdown-menu__item{
+  line-height: 27px !important;
+  // padding
+}
+//dropdown加了分割线后的margin-top
+.el-dropdown-menu__item.el-dropdown-menu__item--divided{
+  margin-top: 4px !important;
+}
+.fontSize12 {
+  font-size: 12px;
+  //dropdown加了分割线后的margin-top
+  .el-dropdown-menu__item.el-dropdown-menu__item--divided{
+    margin-top: 3px !important;
+  }  
+  // 所有dropdown下拉的line-height设置  
+  .el-dropdown-menu__item{
+    line-height: 24px !important;
+  }
+  // 所有表单 label
+  .el-form-item__label {
+    line-height: 26px !important;
+  }
+  // 模态框
+  .app-container .el-dialog .el-dialog__header {
+    padding: 5px 20px;
+  }
+  .ud-staff-select .el-dialog .el-dialog__header {
+    padding: 10px 20px;
+  }
+  // 菜单高度和行高
+  .udesk-menu-wrap .el-submenu__title,
+  .udesk-menu-wrap .el-menu-item,
+  .nest-menu .el-menu-item,
+  #app .sidebar-container .el-submenu .el-menu-item {
+    @include height-size(38px,35px);
+  }
+  // 表单行间距/单表交易行间距
+  .el-form-item,
+  .filter-container .filter-item {
+    margin-bottom: 3px !important;
+  }
+  .headPortrait {
+    width: 20px;
+    height: 20px;
+    margin-top: 6px;
+  }
+  // logo
+  .ud-logo-wrapper.sidebar-logo-container {
+    height: 40px;
+    line-height: 40px;
+    .sidebar-logo-link .sidebar-title {
+      line-height: 40px;
+    }
+  }
+  // header
+  .navbar {
+    height: 40px;
+    .hamburger-container,
+    .ud-breadcrumb.el-breadcrumb,
+    .right-menu {
+      line-height: 40px;
+    }
+    .right-menu .avatar-container .avatar-wrapper .el-icon-caret-bottom {
+      top: 15px;
+    }
+  }
+  .ud-tags-view-wrapper {
+    .ud-tags-view-item {
+      .el-icon-close {
+        width: 13px;
+        height: 13px;
+        vertical-align: 1px;
+        &:before {
+          vertical-align: -2px;
+        }
+      }
+    }
+  }
+  .linestyle {
+    line-height: 26px;
+  }
+}
+.fontSize15 {
+  font-size: 15px;
+}
+.fontSize18 {
+  font-size: 18px;
+  //dropdown加了分割线后的margin-top
+  .el-dropdown-menu__item.el-dropdown-menu__item--divided{
+    margin-top: 6px !important;
+  }  
+  // 所有dropdown下拉的line-height设置
+  .el-dropdown-menu__item{
+    line-height: 30px !important;
+  }
+  // 所有表单 label
+  .el-form-item__label {
+    line-height: 35px !important;
+  }
+  // 模态框
+  .app-container .el-dialog .el-dialog__header {
+    padding: 8px 20px;
+  }
+  .ud-staff-select .el-dialog .el-dialog__header {
+    padding: 11px 20px;
+  }
+  // 菜单高度和行高
+  .udesk-menu-wrap .el-submenu__title,
+  .udesk-menu-wrap .el-menu-item,
+  .nest-menu .el-menu-item,
+  #app .sidebar-container .el-submenu .el-menu-item {
+    @include height-size(45px,42px);
+  }
+  // 表单行间距/单表交易行间距
+  .el-form-item,
+  .filter-container .filter-item {
+    margin-bottom: 8px !important;
+  }
+  .headPortrait {
+    width: 28px;
+    height: 28px;
+    margin-top: 10px;
+  }
+  // logo
+  .ud-logo-wrapper.sidebar-logo-container {
+    height: 55px;
+    line-height: 55px;
+  }
+  // header
+  .navbar {
+    height: 55px;
+    .hamburger-container,
+    .ud-breadcrumb.el-breadcrumb,
+    .right-menu {
+      line-height: 55px;
+    }
+    .right-menu .avatar-container .avatar-wrapper .el-icon-caret-bottom {
+      top: 25px;
+    }
+  }
+  .ud-tags-view-wrapper {
+    .ud-tags-view-item {
+      .el-icon-close {
+        width: 16px;
+        height: 16px;
+        vertical-align: -1px;
+        &:before {
+          vertical-align: 0px;
+        }
+      }
+    }
+  }
+}
+// 文字大小inherit
+.el-form-item__label,
+.el-form-item__content,
+.el-upload-list__item,
+.sidebar-container,
+.el-menu-item,
+.ud-breadcrumb.el-breadcrumb,
+.el-submenu__title,
+.el-checkbox-group,
+.el-checkbox,
+.el-checkbox__label,
+.el-radio,
+.el-radio__label,
+.ud-staff-select .el-icon-search,
+.el-pagination span:not([class*=suffix]), 
+.el-pagination button,
+.el-pager,
+.el-pager li,
+.el-dropdown,
+.el-radio-group,
+.el-select-dropdown__item,
+.el-message-box,
+.el-message__content,
+.el-message-box__title,
+.el-notification__title,
+.el-dropdown-menu--medium .el-dropdown-menu__item,
+.el-dropdown-menu--small .el-dropdown-menu__item,
+.el-dropdown-menu--mini .el-dropdown-menu__item {
+  font-size: inherit !important;
+}
+// 表单交易页面 title
+.ud-form .ud-form-desc .title {
+  font-size: larger;
+}
+// 表单交易页面描述
+.ud-form .ud-form-desc .description {
+  font-size: smaller;
+}
+.el-message-box__title {
+  font-weight: 700;
+}
+.el-message-box {
+  width: 600px !important;
+}
+.el-notification__content,
+.el-message-box__content {
+  font-size: smaller !important;
+  color: #787878;
+  max-height: 300px;
+  overflow-y: auto;
+}
+.DetailBTnotification,
+.DetailBTsuccess,
+.DetailBTwarning,
+.DetailBTerror,
+.DetailBTinfo,
+.DetailBTmessage {
+  b {
+    text-decoration: underline;
+    font-weight: normal;
+    &:hover {
+      font-weight: 700;
+    }
+  }
+}
+.el-message-box {
+  button {
+    font-size: inherit;
+  }
+}
+// 表单交易页面提示框
+.el-form-item__error,
+.ud-capslock-tootip,
+.el-tag {
+  font-size: smaller !important;
+}
+.el-radio__input.is-checked {
+  .el-radio__inner{
+    border-color: $--color-primary !important;
+    background: $--color-primary !important;
+  }
+  & + .el-radio__label {
+    color: $--color-primary !important;
+  }
+}
+.el-checkbox__input.is-checked {
+  .el-checkbox__inner{
+    border-color: $--color-primary !important;
+    background: $--color-primary !important;
+  }
+  & + .el-checkbox__label {
+    color: $--color-primary !important;
+  }
+}
+.el-radio__inner:hover, 
+.el-checkbox__inner:hover,
+.el-slider__button {
+  border-color: $--color-primary !important;
+}
+.el-slider__bar{
+  background-color: $--color-primary !important;
+}
+.el-dropdown-menu__item:not(.is-disabled):hover, .el-dropdown-menu__item:focus {
+  background-color: $--color-primary-light-8 !important;
+  color: $--color-primary !important;
+}
+//logo background JM 0524
+.ud-logo-wrapper.sidebar-logo-container {
+  background-color: darken(desaturate($--color-primary,10%),10%) !important;
+}
+
+//header
+.navbar {
+  background-color: $--color-primary !important;
+  .right-menu .right-menu-item,
+  .ud-breadcrumb.el-breadcrumb .no-redirect {
+    color: $--color-primary-light-9 !important;
+  }
+}
+.el-breadcrumb__inner a, .el-breadcrumb__inner.is-link,
+.el-breadcrumb__separator {
+  color: $--color-primary-light-9 !important;
+}
+.el-breadcrumb__inner a:hover, .el-breadcrumb__inner.is-link:hover {
+  // color: darken(desaturate($--color-primary,17%),15%) !important;
+  text-decoration: underline;
+}
+.dashboard-editor-container {
+  background-color: $--color-white !important;
+}
+.udesk-search.ud-search-show {
+  .el-input__inner {
+    background-color: darken(desaturate($--color-primary,7%),5%) !important;
+    &::-webkit-input-placeholder {
+      color: $--color-primary-light-5;
+    }
+    &::-moz-placeholder {
+      color: $--color-primary-light-5;
+    }
+    &::-ms-input-placeholder {
+      color: $--color-primary-light-5;
+    }
+  }
+}
+// 错误提示
+.el-form-item__error { 
+  background-color: #fdedeb;
+  padding: 5px 15px !important;
+}
+.el-form-item__error--inline {
+  margin-left: 0 !important;
+}
+.el-dialog__body .el-form-item__error { 
+    top: -7px;
+  }
+.fontSize12 .el-dialog__body .el-form-item__error { 
+    top: -4px;
+  }
+
+.DetailBTnotification,
+.DetailBTsuccess,
+.DetailBTwarning,
+.DetailBTerror,
+.DetailBTinfo,
+.DetailBTmessage {
+  b {
+    color: $--color-primary; 
+  }
+}
+.el-button + .el-button {
+  margin-left: 5px !important;
+}
+//sidebar
+$menuText:#333;
+$menuActiveText: $--color-primary-light-9;
+$subMenuActiveText:#333; //https://github.com/ElemeFE/element/issues/12951
+
+$menuBg:#f3f3f3;
+$menuHover: $--color-primary-light-8;
+
+$subMenuBg: #efefef;
+$subMenuHover: $--color-primary-light-8;
+
+$sideBarWidth: 210px;
+//定义背景色  jm 05-28
+@mixin bk-color8 {
+  background-color: $--color-primary-light-8 !important;
+}
+@mixin bk-color {
+  background-color: $--color-primary !important;
+}
+
+//定义菜单border
+@mixin menu-border {
+  border-bottom: 1px solid #e8e8e8;
+  border-top: 1px solid #fdfdfd;
+}
+.udesk-menu-wrap {
+  .el-submenu__title {
+    //@include height-size(45px,42px);
+    @include menu-border;
+  }
+  .el-menu-item {
+    //@include height-size(45px,42px);
+    @include menu-border;
+    &:hover {
+      @include bk-color8;
+      color: #333;
+    }
+    &.is-active {
+      @include bk-color;
+    }
+  }  
+}
+.nest-menu {
+  .el-menu-item {
+    //@include height-size(45px,42px);
+    &:hover {
+      @include bk-color8;
+      color: #333;
+    }
+  }
+  & .is-active {
+    @include bk-color;
+    &:hover {
+      @include bk-color;
+      color: $--color-primary-light-9;
+    }
+  }
+  .is-opend {
+    .el-submenu__title {
+      @include bk-color8;
+    }
+  }
+}
+#app {
+.sidebar-container {
+  .el-submenu .el-menu-item {
+    //@include height-size(45px,42px);
+    &.is-active {
+      @include bk-color;
+      color: $--color-primary-light-9;
+      &:hover {
+        color: $--color-primary-light-9;
+      }
+    }
+  }
+  .submenu-title-noDropdown,
+    .el-submenu__title {
+      &:hover {
+        background-color: $menuHover !important;
+      }
+    }
+}
+.is-active > .el-submenu__title {
+  @include bk-color8;
+  border-bottom-color: #e8e8e8;
+}
+}
+.el-submenu.is-active .el-submenu__title {
+  border-bottom-color: #e8e8e8 !important;
+}
+// 首页tab页签
+.ud-tab-head {
+  background-color: $menuBg !important;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.12), 0 0 0 0 rgba(0, 0, 0, 0.04) !important;
+  border: 0 !important;
+  height: 32px !important;
+  .ud-tags-view-wrapper .ud-tags-view-item {
+    @include bk-color8;
+    border: 0px solid #d8dce5 !important;
+    height: 30px !important;
+    line-height: 30px !important;
+    padding: 0 10px !important;
+    font-size: inherit !important;
+    &.ud-active {
+      background-color: $--color-white !important;
+      color: $--color-primary !important;
+      font-weight: bold;
+      &::before {
+        @include bk-color;
+      }  
+    }
+  }
+  .el-scrollbar__thumb {
+    height: auto !important;
+  }
+  .el-scrollbar__wrap {
+    border-left: 1px solid #fff;
+  }
+}
+// 修改切换字体的图标样式 jm 0531
+.ud-langselect-wapper {
+  .el-dropdown {
+    color: inherit;
+    font-size: inherit;
+  }
+}
+
+//modal框 jm 0613
+.el-dialog {
+  min-width: 500px;
+.el-dialog__header {
+  background-color: $--color-primary;
+  color: $--color-white;
+  .el-dialog__title {
+    color: $--color-primary-light-9;
+    font-size: inherit;
+  }
+  .el-dialog__headerbtn {
+    top: 10px;
+    &:focus,
+    &:hover {
+      .el-dialog__close {
+        color: $--color-primary-light-7;
+      }
+    }
+    .el-dialog__close {
+      color: $--color-primary-light-9;
+    }
+  }
+}
+.el-dialog__body {
+  padding: 30px 20px 20px !important;
+  font-size: inherit;
+}
+}
+
+// input框border
+.el-input__inner:focus,
+.is-focus {
+  box-shadow: 0 0 7px 0 $--color-primary;
+  border-color: $--color-primary !important;
+  &.is-checked {
+    box-shadow: 0 0 0 0 $--color-primary;
+    border-color: $--color-primary !important;
+  }
+}
+.el-radio-button__orig-radio:checked+.el-radio-button__inner{
+  background-color: $--color-primary !important;
+  border-color: $--color-primary !important;
+  -webkit-box-shadow: -1px 0 0 0 $--color-primary !important;
+  box-shadow: -1px 0 0 0 $--color-primary !important;
+}
+// 右侧选择按钮样式
+.ud-rightpanel-container .handle-button {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  left: -40px;
+  font-size: 22px;
+  border-radius: 0 0 0 0 !important;
+  i {
+    font-size: 22px;
+    line-height: 42px;
+  }
+}
+
+// 首页错误页面链接样式
+.dashboard-container .err-pages span {
+  color: $--color-primary;
+}
+
+
+
+/* icon font path, required */
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+
+@import "~element-ui/packages/theme-chalk/src/index";
+
+// the :export directive is the magic sauce for webpack
+// https://www.bluematador.com/blog/how-to-share-variables-between-js-and-sass
+:export {
+  theme: $--color-primary;
+  menuText: $menuText;
+  menuActiveText: $menuActiveText;
+  subMenuActiveText: $subMenuActiveText;
+  menuBg: $menuBg;
+  menuHover: $menuHover;
+  subMenuBg: $subMenuBg;
+  subMenuHover: $subMenuHover;
+  sideBarWidth: $sideBarWidth;
+}

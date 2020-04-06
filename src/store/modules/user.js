@@ -55,6 +55,9 @@ const actions = {
   setopno({ commit }, opno) {
     return new Promise((resolve, reject) => {
       commit('SET_OPNO', opno)
+      resolve()
+    }).catch(error=>{
+      reject(error)
     })
   },
   setsubmenu({ commit }, submenu) {

@@ -270,16 +270,13 @@ export default {
         this.$refs.password.focus()
       })
     },
-    setopno(opno){
-      this.$store.dispatch("user/setopno", this.loginForm.username);
-    },
-    async handleLogin() {
+    handleLogin() {
       this.loading = true
       var userdata={opno:this.loginForm.username,pwd:this.loginForm.password}
-      ailogin(userdata).then(res=>{
+      ailogin(userdata).then(async res=>{
         if(res.data.code===0){
           this.loading = false
-          this.setopno()
+          await this.$store.dispatch("user/setopno", this.loginForm.username)
           Cookies.set("timelimit", res.data.timelimit);
           Cookies.set("leavelimit", res.data.leavelimit);
           sessionStorage.setItem("leavenum",0)

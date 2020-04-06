@@ -112,17 +112,14 @@ export default {
     };
   },
   methods: {
-    setopno(opno){
-      this.$store.dispatch("user/setopno", this.username);
-    },
-    async handleLogin() {
+    handleLogin() {
       var userdata = {
         opno: this.username,
         pwd: this.password
       };
-      ailogin(userdata).then(res => {
+      ailogin(userdata).then(async res => {
         if (res.data.code === 0) {
-          this.setopno()
+          await this.$store.dispatch("user/setopno", this.username);
           Cookies.set("timelimit", res.data.timelimit);
           Cookies.set("leavelimit", res.data.leavelimit);
           sessionStorage.setItem("leavenum",0)

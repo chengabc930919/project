@@ -138,6 +138,5 @@ export function particle(q) {
         var r = requestAnimationFrame(timefunction)
         pagetimer.push(r)
     }
-    console.log(pagetimer)
     return pagetimer
 }

@@ -1319,7 +1319,6 @@ export function echarts_38(data3) {
         return filteroptions.indexOf(item.questype)<0
     }
     )
-    console.log(otherdata)
     var rightnum=otherdata.reduce((a,b)=>{return {rightnum:a.rightnum+b.rightnum}}).rightnum
     var falsenum=otherdata.reduce((a,b)=>{return {falsenum:a.falsenum+b.falsenum}}).falsenum
     otherdata.forEach((element, index) => {

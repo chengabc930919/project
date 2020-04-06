@@ -60,14 +60,12 @@
             type="primary"
             size="small"
             style="width:30%;margin:15px 0 30px; height: 38px;"
-            @click="handleChangePassword"
           >修改密码</el-button>
           <el-button
             :loading="loading"
             type="primary"
             size="small"
             style="width:30%;margin:15px 0 30px; height: 38px;"
-            @click="handleForgetPassword"
           >忘记密码</el-button>
           <div style="position:relative">
             <div class="tips">
@@ -215,8 +213,8 @@ export default {
       },
       cashviews: ['Dashboard'],
       loginForm: {
-        username: 'zhangcheng',
-        password: '123456'
+        username: '',
+        password: ''
       },
 
       loginRules: {
@@ -272,13 +270,19 @@ export default {
         this.$refs.password.focus()
       })
     },
+    setopno(opno){
+      this.$store.dispatch("user/setopno", this.loginForm.username);
+    },
     async handleLogin() {
       this.loading = true
       var userdata={opno:this.loginForm.username,pwd:this.loginForm.password}
       ailogin(userdata).then(res=>{
         if(res.data.code===0){
           this.loading = false
-          Cookies.set("opno", this.loginForm.username)
+          this.setopno()
+          Cookies.set("timelimit", res.data.timelimit);
+          Cookies.set("leavelimit", res.data.leavelimit);
+          sessionStorage.setItem("leavenum",0)
           this.$router.push({ path: this.redirect || '/exam' })
           this.loading = false
         }else{

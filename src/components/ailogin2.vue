@@ -18,7 +18,7 @@
             maxlength="32"
             type="text"
             autocomplete="off"
-            :value="username"
+            v-model="username"
           />
           <div class="validation">
             <img alt src="@/assets/img/tick.png" />
@@ -36,7 +36,7 @@
             autocomplete="off"
             onfocus="this.placeholder=''"
             onblur="this.placeholder=this.value===''?'密码':''"
-            :value="password"
+            v-model="password"
           />
           <div class="validation">
             <img alt src="@/assets/img/tick.png" />
@@ -104,14 +104,17 @@ export default {
   name: "test1",
   data() {
     return {
-      username:'zhangcheng',
-      password:'123456',
+      username:'',
+      password:'',
       pagetimer:[],
       canvas:null,
       printer:null,
     };
   },
   methods: {
+    setopno(opno){
+      this.$store.dispatch("user/setopno", this.username);
+    },
     async handleLogin() {
       var userdata = {
         opno: this.username,
@@ -119,7 +122,10 @@ export default {
       };
       ailogin(userdata).then(res => {
         if (res.data.code === 0) {
-          Cookies.set("opno", this.username);
+          this.setopno()
+          Cookies.set("timelimit", res.data.timelimit);
+          Cookies.set("leavelimit", res.data.leavelimit);
+          sessionStorage.setItem("leavenum",0)
           this.pagetimer.forEach(item => {
             cancelAnimationFrame(item);
           });

@@ -12,10 +12,14 @@ const state = {
   avatar: '',
   introduction: '',
   title: '',
-  actionname: ''
+  actionname: '',
+  opno: '',
 }
 
 const mutations = {
+  SET_OPNO: (state, opno) => {
+    state.opno = opno
+  },
   SET_SUBMENU: (state, submenu) => {
     state.submenu = submenu
   },
@@ -48,6 +52,11 @@ const mutations = {
 }
 
 const actions = {
+  setopno({ commit }, opno) {
+    return new Promise((resolve, reject) => {
+      commit('SET_OPNO', opno)
+    })
+  },
   setsubmenu({ commit }, submenu) {
     return new Promise((resolve, reject) => {
       commit('SET_SUBMENU', submenu)

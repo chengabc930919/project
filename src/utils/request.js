@@ -4,7 +4,7 @@ import axios from 'axios'
 // 创建一个axios实例
 import store from '@/store'
 import { getToken } from '@/utils/auth'
-
+import { sha256_digest } from "@/js/sh256"
 // create an axios instance
 const service = axios.create({
   baseURL: process.env.VUE_APP_BASE_API, // api 的 base_url
@@ -18,12 +18,14 @@ const service = axios.create({
 // request interceptor
 service.interceptors.request.use(
   config => {
+    var token=sha256_digest(JSON.stringify(config.data)+"validate")
     // Do something before request is sent
     if (store.getters.token) {
       // 让每个请求携带token-- ['X-Token']为自定义key 请根据实际情况自行修改
-      config.headers['X-Token'] = getToken()
+      config.headers['validatetoken'] = getToken()
     }
     config.headers['Access-Control-Allow-Origin']='*'
+    config.headers['validatetoken']=token
     return config
   },
   error => {

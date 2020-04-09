@@ -36,7 +36,6 @@
                       v-model="item.picked_radio"
                       :name="'pickedd_' +((currentPage-1)*pageSize+index)"
                       v-bind:value="haha[i]"
-                      @change="doCheck(item,((currentPage-1)*pageSize+index))"
                     />
                     {{haha[i]}} {{tiao}}
                   </div>
@@ -48,7 +47,6 @@
                       v-model="item.pickedMany"
                       :name="'pickedd_' +((currentPage-1)*pageSize+index)"
                       v-bind:value="haha[i]"
-                      @change="doCheck(item,((currentPage-1)*pageSize+index))"
                     />
                     {{haha[i]}} {{tiao}}
                   </div>
@@ -59,7 +57,6 @@
                       v-model="item.picked_radio"
                       :name="'pickedd_' +((currentPage-1)*pageSize+index)"
                       v-bind:value="haha[i]"
-                      @change="doCheck(item,((currentPage-1)*pageSize+index))"
                     />
                     {{tiao}}
                   </div>
@@ -228,20 +225,26 @@ export default {
       var $this = this;
       this.visible = true;
       var left = 0;
-      this.questions.forEach(ques => {
-        if (!ques.finish) {
+      this.questions.forEach((ques,index) => {
+        if (ques.picked_radio==="" && ques.pickedMany.length===0) {
           left = left + 1;
+          ques.finish=false
+          this.$set(this.questions,index,ques)
+        } else {
+          ques.finish=true
+          this.$set(this.questions,index,ques)
         }
       });
       if (left !== 0) {
         this.lefttitle = "剩余" + left + "道";
+      } else{
+        this.lefttitle = "您已完成全部题目";
       }
-      this.questions.forEach(function(item, i) {});
     },
     submitclick() {
       var left = 0;
       this.questions.forEach(ques => {
-        if (!ques.finish) {
+        if (ques.picked_radio==="" && ques.pickedMany.length===0) {
           left = left + 1;
         }
       });
@@ -374,12 +377,20 @@ export default {
         );
       });*/
     },
-    doCheck(item, index) {
+    /*doCheck(item, index) {
       item.finish = true;
+      this.$set(this.questions,index,item)
+      console.log(this.questions)
       sessionStorage.setItem("initquestions", JSON.stringify(this.questions));
-    },
+    },*/
     prev() {
       //上一页
+      /*for(var i=0;i<this.pageSize;i++){
+        this.$set(this.questions,i+this.pageSize*(this.currentPage-1),this.pageData[i])
+      }*/
+      if (this.currentPage > 1) {
+        this.questions.slice((this.currentPage - 1) * this.pageSize,this.pageSize,this.pageData)
+      }
       if (this.currentPage > 1) {
         this.currentPage = this.currentPage - 1;
         //this.init();
@@ -388,9 +399,21 @@ export default {
         (this.currentPage - 1) * this.pageSize,
         this.currentPage * this.pageSize
       );
+      let arr = this.pageData.slice(0);//深拷贝，（等价一个新的数组）
+      arr.forEach(item=>{
+          //执行你的操作
+      })
+      //赋值操作
+      this.pageData =  arr
     },
     next() {
+      /*for(var i=0;i<this.pageSize;i++){
+        this.$set(this.questions,i+this.pageSize*(this.currentPage-1),this.pageData[i])
+      }*/
       //下一页
+      if (this.currentPage < this.allPageNum) {
+        this.questions.slice((this.currentPage - 1) * this.pageSize,this.pageSize,this.pageData)
+      }
       if (this.currentPage < this.allPageNum) {
         this.currentPage = this.currentPage + 1;
         //this.init();
@@ -399,6 +422,12 @@ export default {
         (this.currentPage - 1) * this.pageSize,
         this.currentPage * this.pageSize
       );
+      let arr = this.pageData.slice(0);//深拷贝，（等价一个新的数组）
+      arr.forEach(item=>{
+          //执行你的操作
+      })
+      //赋值操作
+      this.pageData =  arr
     },
     fomart(time) {
       var h, m, s;

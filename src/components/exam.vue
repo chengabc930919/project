@@ -6,7 +6,7 @@
           <div
             align="left"
             style="font-size:25px;font-weight:bold;color:RGB(255,0,0);"
-          >剩余时间：{{duration}} 仅供测试</div>
+          >剩余时间：{{duration}}</div>
           <div class="asbdy" align="left" v-for="(item ,index) in pageData" :key="index">
             <!--题干-->
             <div class="question" style="font-size:20px;">
@@ -125,6 +125,7 @@
           <el-button type="primary" @click="next">下一页</el-button>
           <el-button type="primary" @click="detail">未完成</el-button>
           <el-button type="primary" @click="submitclick" :disabled="hassubmit">提交</el-button>
+          <el-button type="primary" @click="viewrealdata" :style="realdatastyle">查看实时大屏</el-button>
         </div>
       </form>
     </div>
@@ -140,6 +141,9 @@ export default {
   data() {
     return {
       lefttitle: "剩余-1道",
+      realdatastyle:{
+        display:'none'
+      },
       //是否已提交
       hassubmit: false,
       leftnum: "",
@@ -253,6 +257,9 @@ export default {
       }
       this.submitvisible = true;
     },
+    viewrealdata(){
+      this.$router.push({ path: this.redirect || "/realdata" });
+    },
     submit() {
       if(sessionStorage.getItem("hassubmit")===true){
         return
@@ -286,6 +293,9 @@ export default {
         this.questions.forEach((item, index) => {
           item.ans = res.data.rightanswers[index].ans;
         });
+        this.realdatastyle={
+          display:'inline'
+        },
         sessionStorage.setItem("initquestions", JSON.stringify(this.questions));
       });
     },

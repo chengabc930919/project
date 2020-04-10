@@ -60,17 +60,19 @@
             type="primary"
             size="small"
             style="width:30%;margin:15px 0 30px; height: 38px;"
+            :disabled="true"
           >修改密码</el-button>
           <el-button
             :loading="loading"
             type="primary"
             size="small"
             style="width:30%;margin:15px 0 30px; height: 38px;"
+            :disabled="true"
           >忘记密码</el-button>
           <div style="position:relative">
             <div class="tips">
-              <span>账号 : admin</span>
-              <span>密码 : 111111</span>
+              <span>账号 : 姓名拼音全拼</span>
+              <span>密码 : 各组自行下发</span>
             </div>
           </div>
         </el-form>

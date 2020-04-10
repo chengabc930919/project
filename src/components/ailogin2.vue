@@ -68,7 +68,7 @@
         <div class="sp-wrap sp-left">
           <h2>
             <span class="sp-top">15大热门方向</span>
-            <span class="sp-mid">400道考题</span>
+            <span class="sp-mid">500个知识点</span>
             <span class="sp-bottom">机器学习、数据挖掘等方向</span>
           </h2>
         </div>

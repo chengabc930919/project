@@ -254,6 +254,8 @@ export default {
       });
       if (left !== 0) {
         this.leftnum = "您剩余" + left + "道题没做,";
+      } else {
+        this.leftnum ="您已完成全部题目,"
       }
       this.submitvisible = true;
     },

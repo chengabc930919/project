@@ -224,7 +224,8 @@ export function echarts_2(data2) {
     });
 }
 export function echarts_5(data5,data7) {
-    var groupname= ['集中作业组','运营协同组','支付清算组','金融工程组','资产负债组','运营业务组']
+	//原来的组名已经删掉
+    var groupname= ['A组','B组','C组','D组','E组','F组']
     var data6=[]
     groupname.forEach(item=>{
         data6.push(data5.find(element=>{
@@ -374,7 +375,7 @@ export function echarts_5(data5,data7) {
 
 //add new echart chat
 export function echarts_5_1(data5) {
-    var groupname= ['集中作业组','运营协同组','支付清算组','金融工程组','资产负债组','运营业务组']
+    var groupname= ['A组','B组','C组','D组','E组','F组']
     var data6=[]
     groupname.forEach(item=>{
         data6.push(data5.find(element=>{

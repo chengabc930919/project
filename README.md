@@ -1,10 +1,14 @@
-# my-project
+# vue实现答题系统前台部分代码
 
 > A Vue.js project
 
 ## Build Setup
 
 ``` bash
+# download code
+
+git clone
+
 # install dependencies
 npm install
 
@@ -18,4 +22,5 @@ npm run build
 npm run build --report
 ```
 
+# 后台部分代码 请查看我的另一个项目 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

@@ -1,14 +1,24 @@
-# vue实现答题系统前台部分代码
+# vue实现答题系统
 
 分为登录、答题、查看答题结果等功能
 
 ## 登录界面
 
+![登录界面](C:\Users\xjtuz\Desktop\登录界面.png)
 
+## 答题界面
 
-> A Vue.js project
+分为单选、多选、判断等，可以控制切屏和每个人的答题次数，提交答案后返显答案
 
-## Build Setup
+![答题界面](C:\Users\xjtuz\Desktop\答题界面.png)
+
+## 查看答题结果
+
+使用Echarts实现
+
+![大屏界面](C:\Users\xjtuz\Desktop\大屏界面.png)
+
+## 项目执行方式
 
 ``` bash
 # download code
@@ -30,4 +40,3 @@ npm run build --report
 
 # 后台部分代码 
 关于对应的后台部分代码，请查看我的[springboot实现答题系统后台代码](https://github.com/chengabc930919/serverproject )</br>
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

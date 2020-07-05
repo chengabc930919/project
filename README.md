@@ -1,5 +1,11 @@
 # vue实现答题系统前台部分代码
 
+分为登录、答题、查看答题结果等功能
+
+## 登录界面
+
+
+
 > A Vue.js project
 
 ## Build Setup
@@ -23,5 +29,5 @@ npm run build --report
 ```
 
 # 后台部分代码 
-关于对应的后台部分代码，请查看我的[springboot实现答题系统后台代码](https://github.com/chengabc930919/serverproject )
+关于对应的后台部分代码，请查看我的[springboot实现答题系统后台代码](https://github.com/chengabc930919/serverproject )</br>
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
